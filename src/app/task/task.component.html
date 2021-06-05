@@ -1,7 +1,7 @@
 <section class="task-space">
   <h1 class="d-flex h3 px-3 pt-3">
     <div style="width: 175px;">TODO APP</div>
-    <!-- <div *ngIf="selectedList != null" class="fs-6 pt-2" style="font-style: italic;">LIST: {{selectedList?.listName}} </div> -->
+    <div *ngIf="list != null" class="fs-6 pt-2" style="font-style: italic;">LIST: {{list?.listName}} </div>
   </h1>
 
   <section class="task-form text-center my-3">
@@ -30,7 +30,7 @@
   </section>
   <section class="task-list">
 
-      <div *ngFor="let task of tasks" class="d-flex mx-4 mt-2 mb-3">
+      <div *ngFor="let task of tasksInList" class="d-flex mx-4 mt-2 mb-3">
 
         <li id="single-task-{{task.id}}" class="py-1 px-2">
           <span>

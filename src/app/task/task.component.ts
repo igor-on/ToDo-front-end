@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { Task, TaskService } from '../task.service';
 
 @Component({
@@ -6,9 +6,11 @@ import { Task, TaskService } from '../task.service';
   templateUrl: './task.component.html',
   styleUrls: ['./task.component.css']
 })
-export class TaskComponent implements OnInit {
+export class TaskComponent implements OnInit, OnChanges {
 
-  tasks: Task[];
+  tasks: Task[] = [];
+  tasksInList: Task[] = [];
+  @Input() list = null;
 
   constructor(private service: TaskService) { }
 
@@ -23,6 +25,12 @@ export class TaskComponent implements OnInit {
   ngOnInit(): void {
     this.getAllTasks();
     console.log(this.tasks);
+    console.log(this.list);
+  }
+
+  ngOnChanges(): void {
+    console.log(this.list)
+    this.tasksInList = this.tasks.filter( val => val.list.id == this.list.id)
   }
 
 }

@@ -1,11 +1,12 @@
 <section class="list-space">
     <h2 class="h5 px-2 pt-2">AVAILABLE LISTS</h2>
+    <!-- <p>Selected List: {{selectedList?.listName}}</p> -->
 
     <div class="list-list">
         <li *ngFor="let list of lists" class="d-flex mx-2 my-1 px-1 py-1 align-items-center">
           <div style="width: 110px;">{{list?.listName}}</div>
-          <button class="list-button mx-1" type="button">SELECT</button>
-          <button class="list-button" type="button"><svg
+          <button class="list-button mx-1" (click)="chooseList(list)" type="button">SELECT</button>
+          <button class="list-button" (click)="deleteList(list)" type="button"><svg
               xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-trash-fill"
               viewBox="0 0 16 16">
               <path

@@ -1,5 +1,5 @@
-<div class="wrapper">
-  <app-list></app-list>
-  <app-task></app-task>
+<div  class="wrapper">
+  <app-list (selectedListEvent)="getList($event)"></app-list>
+  <app-task [list] = "selectedList"></app-task>
   <app-search></app-search>
 </div>
