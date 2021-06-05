@@ -1,0 +1,91 @@
+.task-space {
+    background-color:white;
+    border-radius: 3px;
+    width: 350px;
+    min-height: 450px;
+}
+
+.todo-input { 
+    width: 250px;
+    border: lightgray solid 1px;
+    border-radius: 2px;
+    padding-top: 2px;
+    padding-bottom: 5px;
+ }
+ 
+ .todo-input:focus {
+     /* ZAPAMIETAC */
+     outline: none !important;
+     border: lightgray solid 1px;
+     box-shadow: 0 0 10px #A0A0A0; 
+ }
+ 
+ .add-button {
+     border-radius: 2px;
+     border: #A0A0A0 solid 2px;
+     background-color: #A0A0A0;
+     color: white;
+ }
+ 
+ .add-button:hover {
+     border: gray solid 2px;
+     background-color: gray;
+ }
+
+ li{
+    border: lightgray solid 1px;
+    border-radius: 2px;
+    width: 90%;
+    list-style: none;
+}
+
+.YES {
+    text-decoration-color: gray;
+    text-decoration-line: line-through;
+    background-color: lightgray;
+}
+
+#delete-button {
+    width: 30px;
+    height: 40px;
+    background-color: tomato;
+    border: tomato solid 1px;
+    border-radius: 2px;
+    color: white;
+    padding-bottom: 3px;
+}
+
+
+#delete-button:hover {
+    background-color: rgb(204, 80, 58);
+    border: rgb(204, 80, 58) solid 1px;
+}
+
+#complete-button {
+    width: 30px;
+    height: 40px;
+    background-color: #00CC00;
+    border:#00CC00  solid 1px;
+    border-radius: 2px;
+    color: white;
+    padding-left: 3px;
+    padding-bottom: 3px;
+    cursor: pointer;
+}
+
+#complete-button:hover {
+    background-color: #009900;
+    border:#009900  solid 1px;
+}
+
+.remove-button {
+    border-radius: 2px;
+    border: #A0A0A0 solid 2px;
+    background-color: #A0A0A0;
+    color: white;
+}
+
+.remove-button:hover {
+    border: gray solid 2px;
+    background-color: gray;
+}

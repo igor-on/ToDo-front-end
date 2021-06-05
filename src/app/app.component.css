@@ -1,0 +1,16 @@
+.wrapper {  
+    min-height: 752px;
+    display: flex;
+    justify-content:space-between;
+    align-items: flex-start;
+    background-image: linear-gradient(to bottom, #4A235A, #DE3163);
+}
+
+app-list {
+    margin-top: 250px;
+}
+
+app-task {
+    margin-top: 135px;
+    margin-right: 280px;
+}

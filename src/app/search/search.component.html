@@ -1,0 +1,6 @@
+<section class="search-space">
+    <form class="position-absolute top-0 end-0 mx-3 my-3" style="width: 200px;">
+        <input type="search" (ngModelChange)="searchTasks(key.value)" #key="ngModel" ngModel name="key" id="search-task"
+          class="form-control" placeholder="Search from all tasks..." required autocomplete="off">
+      </form>
+</section>

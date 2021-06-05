@@ -1,0 +1,11 @@
+#search-task {
+    border: none; 
+}
+
+#search-task:hover {
+    box-shadow: 0 0em 1em #DE3163;
+}
+
+#search-task:focus {
+    box-shadow: 0 0em 1em #DE3163;
+}

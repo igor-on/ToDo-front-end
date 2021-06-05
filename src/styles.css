@@ -1,1 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    box-sizing: border-box;
+    background-image: linear-gradient(to bottom, #4A235A, #DE3163);
+    font-family: 'Roboto', sans-serif;
+}
+
+*:hover {
+    transition: 0.4s all;
+}
+
