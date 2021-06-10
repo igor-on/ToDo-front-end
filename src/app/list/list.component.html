@@ -4,7 +4,7 @@
 
     <div class="list-list">
         <li *ngFor="let list of lists" class="d-flex mx-2 my-1 px-1 py-1 align-items-center">
-          <div style="width: 110px;">{{list?.listName}}</div>
+          <div style="width: 110px;">{{list?.name}}</div>
           <button class="list-button mx-1" (click)="chooseList(list)" type="button">SELECT</button>
           <button class="list-button" (click)="deleteList(list)" type="button"><svg
               xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-trash-fill"

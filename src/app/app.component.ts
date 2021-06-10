@@ -10,7 +10,7 @@ export class AppComponent {
   title = 'ToDoApp';
   selectedList = null;
 
-  getList(listFromEvent: List) {
+  getList(listFromEvent: List) {  
     this.selectedList = listFromEvent;
   }
 }

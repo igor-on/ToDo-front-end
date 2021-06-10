@@ -23,7 +23,7 @@ export class ListComponent implements OnInit {
   }
 
   deleteList(list: List): void {
-    this.selectedListEvent = null
+    this.selectedListEvent.emit(null)
     this.lists = this.lists.filter(val => val.id != list.id)
   }
 

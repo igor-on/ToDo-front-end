@@ -1,4 +1,5 @@
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { ListService } from '../list.service';
 import { Task, TaskService } from '../task.service';
 
 @Component({
@@ -18,8 +19,17 @@ export class TaskComponent implements OnInit, OnChanges {
     this.service.getAllTasks().subscribe(val => this.tasks = val)
   }
 
-  check(): void {
-    console.log(this.tasks);
+  isComplete(task: Task): string {
+    if(task.complete === "YES") return "complete" 
+  }
+  
+  changeToComplete(task: Task){
+    const id = this.tasks.indexOf(task)
+    const id2 = this.tasksInList.indexOf(task)
+    this.tasks[id].complete = "YES" 
+    // this.tasksInList[id2].complete = "YES" 
+    // document.getElementById(`single-task-${task.id}`).classList.add(`complete`)
+    console.log('Zmieniam')
   }
 
   ngOnInit(): void {
@@ -30,7 +40,11 @@ export class TaskComponent implements OnInit, OnChanges {
 
   ngOnChanges(): void {
     console.log(this.list)
-    this.tasksInList = this.tasks.filter( val => val.list.id == this.list.id)
+    if(this.list === null) {
+      this.tasksInList = []
+    } else {
+      this.tasksInList = this.tasks.filter( val => val.listId == this.list.id)
+    }
   }
 
 }

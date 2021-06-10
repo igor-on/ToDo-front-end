@@ -8,7 +8,7 @@ import { List } from './list.service';
 })
 export class TaskService {
 
-  private url = `http://localhost:8000/tasks`;
+  private url = `http://localhost:8000/task`;
 
   constructor(private http: HttpClient) { }
 
@@ -19,8 +19,8 @@ export class TaskService {
 
 export interface Task {
   id: number
-  task: string
+  name: string
   complete: string
-  actualTime: string
-  list: List
+  date: string
+  listId: number
 }

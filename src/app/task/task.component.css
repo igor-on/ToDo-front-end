@@ -5,6 +5,10 @@
     min-height: 450px;
 }
 
+.task-list {
+    min-height: 297px;
+}
+
 .todo-input { 
     width: 250px;
     border: lightgray solid 1px;
@@ -39,7 +43,7 @@
     list-style: none;
 }
 
-.YES {
+.complete {
     text-decoration-color: gray;
     text-decoration-line: line-through;
     background-color: lightgray;

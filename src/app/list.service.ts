@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ListService {
 
-  private url = 'http://localhost:8000/lists'
+  private url = 'http://localhost:8000/list'
 
   constructor(private http: HttpClient) {}
 
@@ -18,6 +18,6 @@ export class ListService {
 
 export interface List {
   id: number,
-  listName: string
+  name: string
 }
 
