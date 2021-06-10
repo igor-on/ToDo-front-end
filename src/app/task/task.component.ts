@@ -39,7 +39,7 @@ export class TaskComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(): void {
-    console.log(this.list)
+    // console.log(this.list)
     if(this.list === null) {
       this.tasksInList = []
     } else {

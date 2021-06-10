@@ -22,9 +22,18 @@ export class ListComponent implements OnInit {
     this.selectedListEvent.emit(list)
   }
 
+  addList(list: List): void {
+    this.service.addList(list).subscribe(val => {
+      console.log(val)
+      this.lists.push(val)
+    })
+  }
+
   deleteList(list: List): void {
-    this.selectedListEvent.emit(null)
-    this.lists = this.lists.filter(val => val.id != list.id)
+    this.service.deleteList(list.id).subscribe( () => {
+      this.selectedListEvent.emit(null)
+      this.lists = this.lists.filter(val => val.id != list.id)
+    })
   }
 
   ngOnInit(): void {

@@ -8,7 +8,7 @@ import { List } from './list.service';
 })
 export class TaskService {
 
-  private url = `http://localhost:8000/task`;
+  private url = `http://localhost:8080/api/task`;
 
   constructor(private http: HttpClient) { }
 
