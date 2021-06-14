@@ -5,10 +5,16 @@
   </h1>
 
   <section class="task-form text-center my-3">
+    {{addForm.value | json}}
     <form #addForm="ngForm" class="mx-2" autocomplete="off">
-      <input class="todo-input" type="text" name="taskName" ngModel #namee="ngModel" placeholder="New task name"
+      <!-- <input type="text" name="id" ngModel> -->
+      <input class="todo-input" type="text" name="name" ngModel #namee="ngModel" placeholder="New task name"
         required minlength="3">
-      <button class="add-button" type="submit">
+      <span type="text" name="listId" ngModelGroup="list">
+        <input hidden class="todo-input" type="text" name="id" ngModel={{list?.id}} required>
+      </span>
+
+      <button [disabled]="!addForm.valid" class="add-button" (click)="addTask(addForm.value); addForm.controls.name.setValue('')" type="submit">
         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-plus"
           viewBox="0 0.5 16 16">
           <path
@@ -19,6 +25,7 @@
     <div style="width: 250px; margin:auto; padding: 10px 20px;" *ngIf="namee.invalid && (namee.dirty || namee.touched)"
       class="alert alert-danger">
 
+<!--      {{namee.control.val}}-->
       <div *ngIf="namee.errors.required">
         Task is required.
       </div>
@@ -31,7 +38,8 @@
   <section class="task-list">
 
 <div class="d-flex justify-content-center" *ngIf="list == null"><span>SELECT LIST FIRST</span></div>
-
+         {{addForm.valid}}
+        {{namee.errors | json}}
       <div *ngFor="let task of tasksInList" class="d-flex mx-4 mt-2 mb-3">
         <li [class]="isComplete(task)" id="single-task-{{task.id}}" class="py-1 px-2">
           <span>
@@ -54,7 +62,7 @@
             </svg></button>
 
 
-          <button class="d-block" id="delete-button" type="button"> <svg xmlns="http://www.w3.org/2000/svg" width="16"
+          <button class="d-block" id="delete-button" (click)="deleteTask(task)" type="button"> <svg xmlns="http://www.w3.org/2000/svg" width="16"
               height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
               <path
                 d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z" />
@@ -63,7 +71,7 @@
 
 
       </div>
-  
+
   </section>
   <section class="space-end">
     <button type="button" class="remove-button mx-4 mb-2">

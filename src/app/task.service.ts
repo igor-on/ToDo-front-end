@@ -1,7 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { List } from './list.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,11 +8,23 @@ import { List } from './list.service';
 export class TaskService {
 
   private url = `http://localhost:8080/api/task`;
+  private httpOptions = {
+    headers: new HttpHeaders({'Content-type': 'application/json'})
+  }
 
   constructor(private http: HttpClient) { }
 
   getAllTasks(): Observable<Task[]> {
     return this.http.get<Task[]>(this.url);
+  }
+
+  addTask(task: Task): Observable<Task> {
+    return this.http.post<Task>(this.url, task, this.httpOptions)
+  }
+
+  deleteTask(id: number): Observable<void> {
+    const url = `${this.url}/${id}`
+    return this.http.delete<void>(url, this.httpOptions);
   }
 }
 

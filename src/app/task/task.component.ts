@@ -1,5 +1,5 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
-import { ListService } from '../list.service';
 import { Task, TaskService } from '../task.service';
 
 @Component({
@@ -18,6 +18,26 @@ export class TaskComponent implements OnInit, OnChanges {
   getAllTasks(): void {
     this.service.getAllTasks().subscribe(val => this.tasks = val)
   }
+  
+  addTask(task: Task): void {
+    this.service.addTask(task).subscribe(val => {
+      console.log(val)
+      this.tasks.push(val)
+      this.tasksInList = this.tasks.filter( val => val.listId == this.list.id)
+    }, (err: HttpErrorResponse) => {
+      console.log(err.error)
+      console.log(err.error.message)
+      console.log(err.error.status)
+    })
+  }
+  
+  deleteTask(task: Task): void {
+    this.service.deleteTask(task.id).subscribe( val => {
+      console.log('deleted')
+      this.tasks = this.tasks.filter( val => val.id != task.id)
+      this.tasksInList = this.tasks.filter( val => val.listId == this.list.id)
+    })
+  }
 
   isComplete(task: Task): string {
     if(task.complete === "YES") return "complete" 
@@ -34,12 +54,10 @@ export class TaskComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.getAllTasks();
-    console.log(this.tasks);
-    console.log(this.list);
   }
 
   ngOnChanges(): void {
-    // console.log(this.list)
+    console.log(this.list)
     if(this.list === null) {
       this.tasksInList = []
     } else {

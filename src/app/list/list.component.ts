@@ -31,6 +31,7 @@ export class ListComponent implements OnInit {
 
   deleteList(list: List): void {
     this.service.deleteList(list.id).subscribe( () => {
+      console.log('deleted')
       this.selectedListEvent.emit(null)
       this.lists = this.lists.filter(val => val.id != list.id)
     })
@@ -39,5 +40,4 @@ export class ListComponent implements OnInit {
   ngOnInit(): void {
     this.getAllLists()
   }
-
 }

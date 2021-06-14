@@ -16,6 +16,7 @@
       </div>
 
 
+      {{addListForm.value | json}}
       <form #addListForm="ngForm" class="d-flex mx-2" autocomplete="off">
         <input class="list-input" type="text" ngModel name="name" placeholder="New list name">
         <button class="add-list-button" (click)="addList(addListForm.value); addListForm.reset()" type="button"> <svg
