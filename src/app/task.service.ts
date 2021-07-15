@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class TaskService {
 
-  private url = `http://localhost:8080/api/tasks`;
+  private url = `http://localhost:8080/api/task`;
   private httpOptions = {
     headers: new HttpHeaders({'Content-type': 'application/json'})
   }
@@ -25,6 +25,16 @@ export class TaskService {
   deleteTask(id: number): Observable<void> {
     const url = `${this.url}/${id}`
     return this.http.delete<void>(url, this.httpOptions);
+  }
+
+  changeToComplete(id: number): Observable<void> {
+    const url = `${this.url}/${id}`
+    return this.http.put<void>(url, this.httpOptions);
+  } 
+
+  deleteAllCompleted(): Observable<void> {
+    const url = `http://localhost:8080/api/tasks/remove`
+    return this.http.delete<void>(url)
   }
 }
 

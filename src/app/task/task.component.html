@@ -12,6 +12,7 @@
     <app-form [list]="list" (addTaskEvent)="addTask($event)"></app-form>
 
   </section>
+
   <section class="task-list">
 
     <div class="d-flex justify-content-center" *ngIf="list == null"><span>SELECT LIST FIRST</span></div>
@@ -51,7 +52,7 @@
 
   </section>
   <section class="space-end">
-    <button type="button" class="remove-button mx-4 mb-2">
+    <button type="button" (click)="deleteAllCompleted()" class="remove-button mx-4 mb-2">
       Remove all completed
     </button>
   </section>
