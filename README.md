@@ -13,7 +13,7 @@ User Interface for https://github.com/igor-on/ToDo-rest-api
 
 ## Screenshot from app 
 
-![Alt text](./assets/img/ToDoApp-ss.PNG)
+![Alt text](./src/assets/img/ToDoApp-ss.PNG)
 
 ## Progress 
 
