@@ -4,12 +4,16 @@ User Interface for https://github.com/igor-on/ToDo-rest-api
 
 ## TABLE OF CONTENTS
 
-* 
-* [Progress] (#progress)
+* [Screenshot from app](#screenshot-from-app)
+* [Progress](#progress)
 * [Purpose of the application](#purpose-of-the-application)
 * [How to start](#how-to-start)
 * [Technologies](#technologies)
 * [Further help](#further-help)
+
+## Screenshot from app 
+
+![Alt text](./assets/img/ToDoApp-ss.PNG)
 
 ## Progress 
 
