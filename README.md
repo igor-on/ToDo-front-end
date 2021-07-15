@@ -1,27 +1,42 @@
 # ToDoApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.5.
+User Interface for https://github.com/igor-on/ToDo-rest-api 
 
-## Development server
+## TABLE OF CONTENTS
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+* 
+* [Progress] (#progress)
+* [Purpose of the application](#purpose-of-the-application)
+* [How to start](#how-to-start)
+* [Technologies](#technologies)
+* [Further help](#further-help)
 
-## Code scaffolding
+## Progress 
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+:heavy_check_mark::heavy_check_mark::heavy_check_mark::heavy_check_mark::heavy_check_mark::heavy_check_mark::heavy_check_mark::heavy_check_mark::heavy_check_mark::x:
 
-## Build
+## Purpose of the application
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+I made this application to train basic concepts of Angular
 
-## Running unit tests
+### What you can do in this app?
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+* Write tasks that have to be done
+* Group your tasks by adding them to specific list/category
+* Search for tasks and filter them
+* Mark finished tasks as completed
+* Once you have some tasks completed, delete them one by one or with prepared 'remove all completed' button
 
-## Running end-to-end tests
+## How to start 
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+ * First you have to make sure you run this(https://github.com/igor-on/ToDo-rest-api) on your computer
+ * To install all needed node_modules use the command `npm ci` on the command line from this application directory
+ * Then run `ng serve` for a dev server. Navigate to `http://localhost:4200/` where the application will run
 
+ ## Technologies 
+
+#### This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.5.
+ 
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
