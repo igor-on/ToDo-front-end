@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ListService {
 
-  private url = 'http://localhost:8080/api/list'
+  private url = 'http://localhost:8080/api/lists'
   private httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   }
