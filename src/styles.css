@@ -1,7 +1,10 @@
 body {
-    box-sizing: border-box;
     background-image: linear-gradient(to bottom, #4A235A, #DE3163);
     font-family: 'Roboto', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 *:hover {

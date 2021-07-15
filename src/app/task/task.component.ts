@@ -11,6 +11,7 @@ export class TaskComponent implements OnInit, OnChanges {
 
   tasks: Task[] = [];
   tasksInList: Task[] = [];
+  @Input() errorAlert: string = null;
   @Input() list = null;
 
   constructor(private service: TaskService) { }
@@ -19,14 +20,18 @@ export class TaskComponent implements OnInit, OnChanges {
     this.service.getAllTasks().subscribe(val => this.tasks = val)
   }
   
-  addTask(task: Task): void {
-    this.service.addTask(task).subscribe(val => {
+  addTask(taskFromEvent: Task): void {
+    this.service.addTask(taskFromEvent).subscribe(val => {
       console.log(val)
       this.tasks.push(val)
       this.tasksInList = this.tasks.filter( val => val.listId == this.list.id)
     }, (err: HttpErrorResponse) => {
-      console.log(err.error)
-      console.log(err.error.message)
+      if(this.list == null) {
+            this.errorAlert = 'Select list first V2'
+      } else {
+        this.errorAlert = 'Wrong task name'
+      }
+      console.log(err.error.error)
       console.log(err.error.status)
     })
   }
@@ -36,6 +41,9 @@ export class TaskComponent implements OnInit, OnChanges {
       console.log('deleted')
       this.tasks = this.tasks.filter( val => val.id != task.id)
       this.tasksInList = this.tasks.filter( val => val.listId == this.list.id)
+    }, err => {
+      console.log(err.error.error)
+      console.log(err.error.status)
     })
   }
 
@@ -58,6 +66,7 @@ export class TaskComponent implements OnInit, OnChanges {
 
   ngOnChanges(): void {
     console.log(this.list)
+    console.log(this.errorAlert);
     if(this.list === null) {
       this.tasksInList = []
     } else {

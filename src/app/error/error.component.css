@@ -1,0 +1,10 @@
+.error-alert {
+    margin-top: -15px;
+    padding: 2px;
+    min-height: 58.8px;
+    min-width: 165px;
+    border-radius: 5px;
+    font-size: large;
+    color: white;
+    margin-left: 20px;
+}

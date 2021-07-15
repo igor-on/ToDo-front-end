@@ -9,33 +9,6 @@
     min-height: 297px;
 }
 
-.todo-input { 
-    width: 250px;
-    border: lightgray solid 1px;
-    border-radius: 2px;
-    padding-top: 2px;
-    padding-bottom: 5px;
- }
-
- .todo-input:focus {
-     /* ZAPAMIETAC */
-     outline: none !important;
-     border: lightgray solid 1px;
-     box-shadow: 0 0 10px #A0A0A0; 
- }
- 
- .add-button {
-     border-radius: 2px;
-     border: #A0A0A0 solid 2px;
-     background-color: #A0A0A0;
-     color: white;
- }
- 
- .add-button:hover {
-     border: gray solid 2px;
-     background-color: gray;
- }
-
  li{
     border: lightgray solid 1px;
     border-radius: 2px;

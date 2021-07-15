@@ -9,8 +9,13 @@ import { List } from './list.service';
 export class AppComponent {
   title = 'ToDoApp';
   selectedList = null;
+  errorAlert = null;
 
   getList(listFromEvent: List) {  
     this.selectedList = listFromEvent;
+  }
+
+  getErrorAlert(errAlertFromEvent: string) {
+    this.errorAlert = errAlertFromEvent;
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { List, ListService } from '../list.service';
 
 @Component({
@@ -10,6 +10,7 @@ export class ListComponent implements OnInit {
 
   lists: List[];
   @Output() selectedListEvent = new EventEmitter<List>();
+  @Output() listErrorAlertEvent = new EventEmitter<string>();
 
   constructor(private service: ListService) { }
 
@@ -26,6 +27,10 @@ export class ListComponent implements OnInit {
     this.service.addList(list).subscribe(val => {
       console.log(val)
       this.lists.push(val)
+    }, err => {
+      this.listErrorAlertEvent.emit("Something went wrong...")
+      console.log(err.error.error)
+      console.log(err.error.status)
     })
   }
 
@@ -34,6 +39,9 @@ export class ListComponent implements OnInit {
       console.log('deleted')
       this.selectedListEvent.emit(null)
       this.lists = this.lists.filter(val => val.id != list.id)
+    }, err => {
+      console.log(err.error.error)
+      console.log(err.error.status)
     })
   }
 

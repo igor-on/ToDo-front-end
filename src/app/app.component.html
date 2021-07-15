@@ -1,5 +1,5 @@
 <div  class="wrapper">
-  <app-list (selectedListEvent)="getList($event)"></app-list>
-  <app-task [list] = "selectedList"></app-task>
+  <app-list (selectedListEvent)="getList($event)" (listErrorAlertEvent)="getErrorAlert($event)"></app-list>
+  <app-task [list] = "selectedList" [errorAlert]="errorAlert" ></app-task>
   <app-search></app-search>
 </div>
