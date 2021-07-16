@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, Output, EventEmitter } from '@angular/core';
 import { Task, TaskService } from '../task.service';
 
 @Component({
@@ -9,7 +9,9 @@ import { Task, TaskService } from '../task.service';
 })
 export class TaskComponent implements OnInit, OnChanges {
 
+  @Output() allTasksEvent = new EventEmitter<Task[]>();
   tasks: Task[] = [];
+  @Input() tasksFromSearch: Task[] = null;
   tasksInList: Task[] = [];
   @Input() errorAlert: string = null;
   @Input() list = null;
@@ -17,7 +19,10 @@ export class TaskComponent implements OnInit, OnChanges {
   constructor(private service: TaskService) { }
 
   getAllTasks(): void {
-    this.service.getAllTasks().subscribe(val => this.tasks = val)
+    this.service.getAllTasks().subscribe(val => {
+      this.tasks = val
+      this.allTasksEvent.emit(this.tasks)
+    })
   }
 
   addTask(taskFromEvent: Task): void {
@@ -90,6 +95,7 @@ export class TaskComponent implements OnInit, OnChanges {
     console.log(this.errorAlert);
     if (this.list === null) {
       this.tasksInList = []
+      this.tasksInList = this.tasksFromSearch
     } else {
       this.updateTasksInlist()
     }
