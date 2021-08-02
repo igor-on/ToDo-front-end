@@ -17,7 +17,7 @@ User Interface for https://github.com/igor-on/ToDo-rest-api
 
 ## Progress 
 
-:heavy_check_mark::heavy_check_mark::heavy_check_mark::heavy_check_mark::heavy_check_mark::heavy_check_mark::heavy_check_mark::heavy_check_mark::heavy_check_mark::x: - 90%
+:heavy_check_mark::heavy_check_mark::heavy_check_mark::heavy_check_mark::heavy_check_mark::heavy_check_mark::heavy_check_mark::heavy_check_mark::heavy_check_mark::heavy_check_mark: - 100%
 
 ## Purpose of the application
 
