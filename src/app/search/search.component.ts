@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
+import { List } from '../list.service';
+import { Task } from '../task.service';
 
 @Component({
   selector: 'app-search',
@@ -7,32 +9,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
+  @Input() tasks = null;
+  @Output() listEvent = new EventEmitter<List>();
+  @Output() tasksToListEvent = new EventEmitter<Task[]>();
+
   constructor() { }
-
+  
   public searchTasks(key: string): void {
-    // console.log(key);
-    // const results: ToDo[] = [];
-    // for (const task of this.allTasks) {
-    //   if (task.taskName.toLowerCase().indexOf(key.toLowerCase()) !== -1) {
-    //     results.push(task);
-    //   }
-    // }
-    // this.selectedList = null;
-    // this.tasksToList = results;
-    // if (key === 'finished') {
-    //   this.tasksToList = this.allTasks.filter((task: ToDo) => task.complete === 'YES')
+    console.log(key);
+    let results: Task[] = [];
+    for (const task of this.tasks) {
+      if (task.name.toLowerCase().indexOf(key.toLowerCase()) !== -1) {
+        results.push(task);
+      }
+    }
 
-    //   this.tasksToList.forEach(task => {
-    //     const d1 = new Date(task.actualTime);
-    //     console.log(d1)
-    //   })
-    // }
-    // if (results.length === 0 || !key) {
-    //   this.selectedList = null;
-    // }
+    console.log(results)
+
+    if (results.length === 0 || !key) {
+      results = [];
+    }
+
+    this.listEvent.emit(null)
+    this.tasksToListEvent.emit(results)
   }
-
+  
   ngOnInit(): void {
   }
-
 }
